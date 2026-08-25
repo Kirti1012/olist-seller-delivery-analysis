@@ -37,6 +37,10 @@ Raw data: [Olist Brazilian E-Commerce Public Dataset (Kaggle)](https://www.kaggl
 
 SQL (MySQL) · Python (pandas) · Power BI · DAX · Power Query
 
+## PowerBi final dashboard 
+"C:\Users\kirti\OneDrive\Desktop\Olist dataset analysis\power bi\olist dashboardk.pbix"
+
+
 ## Author
 
 Kirti Lulla — [LinkedIn](https://www.linkedin.com/in/kirti-lulla-405a60249/)
