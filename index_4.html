@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kirti Lulla — Business Analyst</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+  :root{
+    --paper:#F0EFE8;
+    --paper-raised:#F7F6F1;
+    --ink:#1B2A33;
+    --ink-soft:#4A5A62;
+    --line:#C9C6B8;
+    --mustard:#C08A2E;
+    --mustard-tint:#F4E6C9;
+    --teal:#3E6259;
+    --teal-tint:#DCE7E1;
+    --rose:#B9584F;
+    --rose-tint:#F2DCD8;
+    --mono:'IBM Plex Mono', monospace;
+    --sans:'IBM Plex Sans', sans-serif;
+    --serif:'Source Serif 4', serif;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:var(--teal);}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--mustard); outline-offset:3px;}
+
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    padding:64px 0 44px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+  }
+  header::before{
+    content:"";
+    position:absolute;
+    top:0; left:0;
+    width:64px; height:4px;
+    background:linear-gradient(90deg, var(--mustard), var(--rose));
+  }
+  .name-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    flex-wrap:wrap;
+    gap:12px;
+  }
+  h1{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:2.3rem;
+    letter-spacing:-0.01em;
+  }
+  .title{
+    font-family:var(--mono);
+    font-size:0.82rem;
+    color:var(--rose);
+    letter-spacing:0.02em;
+  }
+  .contact-row{
+    margin-top:18px;
+    display:flex;
+    gap:22px;
+    flex-wrap:wrap;
+    font-size:0.88rem;
+  }
+  .contact-row a{
+    color:var(--ink);
+    text-decoration:none;
+    border-bottom:1px solid var(--line);
+    padding-bottom:1px;
+  }
+  .contact-row a:hover{border-color:var(--mustard); color:var(--mustard);}
+
+  /* ---------- Intro ---------- */
+  .intro{
+    padding:44px 0 40px;
+    max-width:640px;
+  }
+  .intro p{
+    font-family:var(--serif);
+    font-size:1.34rem;
+    line-height:1.55;
+    color:var(--ink);
+  }
+  .intro p + p{margin-top:16px; font-size:1rem; font-family:var(--sans); color:var(--ink-soft); line-height:1.65;}
+
+  .about-row{
+    display:flex;
+    gap:28px;
+    margin-top:28px;
+    flex-wrap:wrap;
+  }
+  .about-card{
+    flex:1;
+    min-width:160px;
+    padding:16px 18px;
+    border-radius:6px;
+  }
+  .about-card.a1{background:var(--mustard-tint);}
+  .about-card.a2{background:var(--teal-tint);}
+  .about-card.a3{background:var(--rose-tint);}
+  .about-card h4{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    color:var(--ink);
+    margin-bottom:6px;
+  }
+  .about-card p{
+    font-family:var(--sans) !important;
+    font-size:0.86rem !important;
+    color:var(--ink-soft) !important;
+    line-height:1.5 !important;
+  }
+
+  /* ---------- Section label ---------- */
+  .section{padding:44px 0; border-bottom:1px solid var(--line);}
+  .section:last-of-type{border-bottom:none;}
+  .section-label{
+    font-family:var(--mono);
+    font-size:0.75rem;
+    color:var(--ink-soft);
+    margin-bottom:22px;
+  }
+
+  /* ---------- Project ---------- */
+  .project-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:20px;
+    flex-wrap:wrap;
+  }
+  .project-title{
+    font-family:var(--serif);
+    font-size:1.5rem;
+    font-weight:600;
+    max-width:480px;
+  }
+  .project-links{
+    display:flex;
+    gap:14px;
+    font-family:var(--mono);
+    font-size:0.8rem;
+    white-space:nowrap;
+  }
+  .project-links a{color:var(--teal); text-decoration:none; border-bottom:1px solid transparent;}
+  .project-links a:hover{border-color:var(--teal);}
+
+  .project-question{
+    margin-top:18px;
+    font-size:0.98rem;
+    color:var(--ink-soft);
+    max-width:620px;
+    line-height:1.6;
+  }
+
+  .stat-row{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+    margin-top:28px;
+  }
+  .stat{
+    padding:20px 18px;
+    border-radius:6px;
+    border:1px solid var(--line);
+  }
+  .stat.s1{background:var(--paper-raised);}
+  .stat.s2{background:var(--rose-tint); border-color:transparent;}
+  .stat.s3{background:var(--mustard-tint); border-color:transparent;}
+  .stat-num{
+    font-family:var(--mono);
+    font-size:1.6rem;
+    color:var(--ink);
+    font-weight:500;
+  }
+  .stat-label{
+    font-family:var(--sans);
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    margin-top:5px;
+  }
+
+  .pipeline{
+    margin-top:32px;
+    list-style:none;
+  }
+  .pipeline li{
+    display:flex;
+    gap:16px;
+    padding:12px 0;
+    border-top:1px solid var(--line);
+    font-size:0.92rem;
+  }
+  .pipeline li:last-child{border-bottom:1px solid var(--line);}
+  .pipeline .num{
+    font-family:var(--mono);
+    color:var(--mustard);
+    flex-shrink:0;
+    width:18px;
+  }
+  .pipeline .tool{
+    font-family:var(--mono);
+    font-size:0.82rem;
+    color:var(--teal);
+    flex-shrink:0;
+    width:78px;
+  }
+  .pipeline .desc{color:var(--ink-soft);}
+
+  /* ---------- Methodology callout ---------- */
+  .callout{
+    margin-top:32px;
+    background:var(--paper-raised);
+    border-left:3px solid var(--mustard);
+    padding:20px 22px;
+  }
+  .callout-label{
+    font-family:var(--mono);
+    font-size:0.75rem;
+    color:var(--mustard);
+    margin-bottom:10px;
+  }
+  .callout ul{padding-left:18px;}
+  .callout li{
+    font-size:0.9rem;
+    color:var(--ink-soft);
+    margin-bottom:8px;
+    line-height:1.55;
+  }
+  .callout li::marker{color:var(--mustard);}
+  .callout li:last-child{margin-bottom:0;}
+
+  /* ---------- Skills ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px 40px;
+  }
+  .skill-group h3{
+    font-family:var(--mono);
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    font-weight:500;
+    margin-bottom:8px;
+  }
+  .skill-group p{font-size:0.92rem; color:var(--ink);}
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:36px 0 56px;
+    font-family:var(--mono);
+    font-size:0.78rem;
+    color:var(--ink-soft);
+  }
+
+  @media (max-width:560px){
+    h1{font-size:1.7rem;}
+    .intro p{font-size:1.1rem;}
+    .stat-row{grid-template-columns:1fr;}
+    .skills-grid{grid-template-columns:1fr;}
+    .project-title{max-width:100%;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header>
+    <div class="name-row">
+      <h1>Kirti Lulla</h1>
+      <div class="title">Aspiring Business Analyst</div>
+    </div>
+    <div class="contact-row">
+      <a href="mailto:kirtilulla2610@gmail.com">kirtilulla2610@gmail.com</a>
+      <a href="https://www.linkedin.com/in/kirti-lulla-405a60249/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/Kirti1012" target="_blank" rel="noopener">GitHub</a>
+    </div>
+  </header>
+
+  <div class="intro">
+    <p>I turn messy transaction data into decisions someone can act on.</p>
+    <p>Background in SQL, Python, and Power BI, with a habit of checking whether a finding actually holds up before calling it a finding.</p>
+
+    <div class="about-row">
+      <div class="about-card a1">
+        <h4>FOCUS</h4>
+        <p>E-commerce &amp; marketplace operations data</p>
+      </div>
+      <div class="about-card a2">
+        <h4>STRENGTH</h4>
+        <p>Confound-aware analysis — not just correlation dressed as insight</p>
+      </div>
+      <div class="about-card a3">
+        <h4>CURRENTLY</h4>
+        <p>Applying for Business Analyst roles &amp; building project #2</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="section" id="project">
+    <div class="section-label">FEATURED PROJECT</div>
+
+    <div class="project-head">
+      <div class="project-title">Seller Delivery Accountability Analysis</div>
+      <div class="project-links">
+        <a href="https://github.com/Kirti1012/olist-seller-delivery-analysis" target="_blank" rel="noopener">Repository</a>
+      </div>
+    </div>
+
+    <p class="project-question">
+      Which sellers on a 110K-order Brazilian e-commerce marketplace are systematically causing delivery delays — after controlling for region and product category, so the analysis doesn't wrongly blame sellers shipping to remote areas or selling inherently slow-moving products.
+    </p>
+
+    <div class="stat-row">
+      <div class="stat s1">
+        <div class="stat-num">881</div>
+        <div class="stat-label">sellers met the minimum order-volume threshold</div>
+      </div>
+      <div class="stat s2">
+        <div class="stat-num">371</div>
+        <div class="stat-label">exceeded their region + category-adjusted expected rate</div>
+      </div>
+      <div class="stat s3">
+        <div class="stat-num">$403K</div>
+        <div class="stat-label">modeled revenue-at-risk across flagged sellers</div>
+      </div>
+    </div>
+
+    <ol class="pipeline">
+      <li><span class="num">01</span><span class="tool">SQL</span><span class="desc">Loaded and joined raw order, seller, and product tables; built seller-level aggregation with a minimum-volume filter and region/category benchmark comparisons.</span></li>
+      <li><span class="num">02</span><span class="tool">Python</span><span class="desc">Validated the SQL output and modeled revenue-at-risk from the gap between expected and observed late rates.</span></li>
+      <li><span class="num">03</span><span class="tool">Power BI</span><span class="desc">Built a joint state × category benchmark and an interactive dashboard for drilling into individual sellers.</span></li>
+    </ol>
+
+    <div class="callout">
+      <div class="callout-label">METHODOLOGY NOTES — READ BEFORE DRAWING CONCLUSIONS</div>
+      <ul>
+        <li>Expected late rate is a joint state × category benchmark — sellers are compared against others selling similar products into similar regions, not a flat average.</li>
+        <li>Revenue-at-risk is a modeled proxy (excess bad-review rate on late orders × late-order revenue), not a confirmed financial loss — the data has no field for actual platform interventions.</li>
+        <li>The analysis doesn't separate seller handling time from carrier transit time, so "late" reflects total delay to the customer, not seller fault in isolation.</li>
+        <li>A minimum of 20 orders is required before a seller enters the ranking, to avoid flagging low-volume sellers on noise alone.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="next">
+    <div class="section-label">IN PROGRESS</div>
+    <div class="project-title" style="font-size:1.15rem; color:var(--ink-soft);">Project #2 — coming soon</div>
+    <p class="project-question" style="margin-top:10px;">Actively scoping the next analysis while applying to Business Analyst roles. Check back, or ask me directly what I'm working on.</p>
+  </section>
+
+  <section class="section" id="skills">
+    <div class="section-label">TOOLS</div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h3>QUERYING &amp; DATA</h3>
+        <p>SQL (MySQL), Excel, data cleaning &amp; joins</p>
+      </div>
+      <div class="skill-group">
+        <h3>ANALYSIS</h3>
+        <p>Python (pandas), confound-adjusted benchmarking</p>
+      </div>
+      <div class="skill-group">
+        <h3>VISUALIZATION</h3>
+        <p>Power BI, DAX, Power Query</p>
+      </div>
+      <div class="skill-group">
+        <h3>APPROACH</h3>
+        <p>Stating a metric's limits alongside the metric itself</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Kirti Lulla — kirtilulla2610@gmail.com
+  </footer>
+
+</div>
+
+</body>
+</html>
